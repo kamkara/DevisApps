@@ -1,0 +1,25 @@
+
+<main class="container">
+
+  <!-- Add Quote Header-->
+  <div class="header">
+    <h1>Quotes</h1>
+
+    <!-- -->
+    <!-- New Quote Link -->
+<%= link_to 'Nouveau devis',new_quote_path,
+    data:{turbo_frame: dom_id(Quote.new) }, 
+    class:"btn btn--primary" %>
+
+  </div>
+
+    <!-- Add New Quote Form-->
+  <%= turbo_frame_tag Quote.new %>
+
+
+    <!-- List Quotes -->
+  <%= turbo_frame_tag "quotes" do %>
+    <%= render @quotes %>
+  <% end %>
+  
+</main>
