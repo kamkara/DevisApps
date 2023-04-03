@@ -3,7 +3,7 @@ class QuotesController < ApplicationController
 
   # GET /quotes or /quotes.json
   def index
-    @quotes = Quote.ordered
+    @quotes = current_compagny.quotes.ordered
   end
 
   # GET /quotes/1 or /quotes/1.json
@@ -21,7 +21,7 @@ class QuotesController < ApplicationController
 
   # POST /quotes or /quotes.json
   def create
-    @quote = Quote.new(quote_params)
+    @quote = current_compagny.quotes.build(quote_params)
 
     if @quote.save
       respond_to do |format|
@@ -58,7 +58,10 @@ class QuotesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_quote
-      @quote = Quote.find(params[:id])
+
+      # We must use current_company.quotes here instead of Quote
+      # for security reasons
+      @quote = current_compagny.quotes.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

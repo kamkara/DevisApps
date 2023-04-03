@@ -1,4 +1,5 @@
-<%= turbo_stream_from "quotes" %>
+<%# This line generate the <turbo-cable-stream-source> tag %>
+<%= turbo_stream_from current_compagny, "quotes" %>
 
 <main class="container">
 
@@ -6,12 +7,10 @@
   <div class="header">
     <h1>Quotes</h1>
 
-    <!-- -->
     <!-- New Quote Link -->
-<%= link_to 'Nouveau devis',new_quote_path,
-    data:{turbo_frame: dom_id(Quote.new) }, 
-    class:"btn btn--primary" %>
-
+    <%= link_to 'Nouveau devis',new_quote_path,
+        data:{turbo_frame: dom_id(Quote.new) }, 
+        class:"btn btn--primary" %>
   </div>
 
     <!-- Add New Quote Form-->
