@@ -28,7 +28,7 @@ class LineItemsController < ApplicationController
     if @line_item.save
       respond_to do |format|
         format.html { redirect_to quote_path(@quote), notice: "Item was successfully created." }
-        format.turbo_stream { flash.now[:notice] = "Item was successfully created." }
+        format.turbo_stream { flash.now[:notice] = "La ligne a bien ete crée ." }
       end
     else
       render :new, status: :unprocessable_entity
@@ -40,7 +40,7 @@ class LineItemsController < ApplicationController
     if @line_item.update(line_item_params)
       respond_to do |format|
         format.html { redirect_to quote_path(@quote), notice: "Item was successfully updated." }
-        format.turbo_stream { flash.now[:notice] = "Item was successfully updated." }
+        format.turbo_stream { flash.now[:notice] = "La ligne a bien ete modifier ." }
       end
     else
       render :edit, status: :unprocessable_entity
@@ -53,7 +53,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to quote_path(@quote), notice: "Date was successfully destroyed." }
-      format.turbo_stream { flash.now[:notice] = "Date was successfully destroyed." }
+      format.turbo_stream { flash.now[:notice] = "La ligne a bien ete supprimer ." }
     end
   end
 

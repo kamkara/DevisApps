@@ -2,10 +2,10 @@ en:
   simple_form:
     placeholders:
       quote:
-        name: Name of your quote
+        name: Nom du devis
       line_item:
-        name: Name of your item
-        description: Description (optional)
+        name: Nom element
+        description: Description (optionelle)
         quantity: 1
         unit_price: $100.00
     labels:

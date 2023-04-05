@@ -2,7 +2,12 @@
 
 <div class="empty-state">
     <p class="empty-state__text">
-        You don't have any quotes yet!
+        Vous n'aves pas de devis Crée actuellement
+    </p>
+    <p class="">
+        <small class="">
+            Debuter par la creaction de devis, en cliquant sur "Nouveau Devis"
+        </small>
     </p>
 
     <%= link_to "Nouveau Devis", new_quote_path, data:{turbo_frame: dom_id(Quote.new )}, class: "btn btn--primary" %>

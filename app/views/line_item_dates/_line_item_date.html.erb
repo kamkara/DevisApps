@@ -7,11 +7,11 @@
                 </h2>
 
                 <div class="line-item-date__actions">
-                    <%= button_to "Delete",
+                    <%= button_to "Supprimer",
                             [quote, line_item_date],
                             method: :delete,
                             class: "btn btn--light" %>
-                    <%= link_to "Edit",
+                    <%= link_to "Modifier",
                         [:edit, quote, line_item_date],
                         class: "btn btn--light" %>
                 </div>
@@ -21,9 +21,9 @@
         <!-- Add LineItems -->
         <div class="line-item-date__body">
             <div class="line-item line-item--header">
-                <div class="line-item__name">Article</div>
-                <div class="line-item__quantity">Quantity</div>
-                <div class="line-item__price">Price</div>
+                <div class="line-item__name">Articles</div>
+                <div class="line-item__quantity">Quantités</div>
+                <div class="line-item__price">Prix</div>
                 <div class="line-item__actions"></div>
             </div>
 
@@ -37,7 +37,7 @@
             <%= turbo_frame_tag nested_dom_id(line_item_date, LineItem.new) %>
             
             <div class="line-item-date__footer">
-                <%= link_to "Add item",
+                <%= link_to "Nouvelle Ligne",
                     [:new, quote, line_item_date, :line_item],
                     data: { turbo_frame: nested_dom_id(line_item_date, LineItem.new) },
                     class: "btn btn--primary" %>

@@ -2,10 +2,11 @@
 
 <main class="container">
     
-    <%= link_to sanitize("&larr; Back to quotes"), quotes_path %>
+<%= link_to sanitize("&larr; Retour aux devis"), quotes_path %>
+
 
     <div class="header">
-        <h1>New quote</h1>
+        <h1>Nouveau Devis</h1>
     </div>
     <%= turbo_frame_tag @quote do %>
     <%= render "form", quote: @quote %>

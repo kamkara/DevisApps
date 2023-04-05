@@ -20,12 +20,12 @@
             <%= number_to_currency line_item.unit_price %>
         </div>
         <div class="line-item__actions">
-            <%= button_to "Delete",
+            <%= button_to "Supprimer",
                         [quote, line_item_date, line_item],
                         method: :delete,
                         class: "btn btn--light" %>
                         
-            <%= link_to "Edit",
+            <%= link_to "Modifier",
                     [:edit, quote, line_item_date, line_item],
                     class: "btn btn--light" %>
         </div>
