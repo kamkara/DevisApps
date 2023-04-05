@@ -14,11 +14,11 @@
   </div>
 
   <!-- Add New Quote Form or Empty state if quote is none -->
-  <%#= turbo_frame_tag Quote.new do %>
-      <%# if @quotes.none? %>
-          <%#= render "shared/empty_state" %>
-      <%# end %>
-  <%# end %>
+  <%= turbo_frame_tag Quote.new do %>
+      <% if @quotes.none? %>
+          <%= render "shared/empty_state" %>
+      <% end %>
+  <% end %>
 
 
 <%= turbo_frame_tag "quotes" do %>
@@ -28,9 +28,9 @@
 
 
     <!-- List Quotes -->
-  <%= turbo_frame_tag "quotes" do %>
-    <%= render "shared/empty_state_css" %>
-    <%= render @quotes %>
-  <% end %>
+  <%#= turbo_frame_tag "quotes" do %>
+    <%#= render "shared/empty_state_css" %>
+    <%#= render @quotes %>
+  <%# end %>
   
 </main>

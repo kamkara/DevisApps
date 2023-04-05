@@ -1,43 +1,50 @@
 require "application_system_test_case"
 
 class LineItemDatesTest < ApplicationSystemTestCase
-  setup do
-    @line_item_date = line_item_dates(:one)
+   setup do
+    login_as users(:accountant)
+
+    @quote          = quotes(:first)
+    @line_item_date = line_item_dates(:today)
+
+    visit quote_path(@quote)
   end
 
-  test "visiting the index" do
-    visit line_item_dates_url
-    assert_selector "h1", text: "Line item dates"
+  test "Creating a new line item date" do
+    assert_selector "h1", text: "First quote"
+
+    click_on "New date"
+    assert_selector "h1", text: "First quote"
+    fill_in "Date", with: Date.current + 1.day
+
+    click_on "Create date"
+    assert_text I18n.l(Date.current + 1.day, format: :long)
   end
 
-  test "should create line item date" do
-    visit line_item_dates_url
-    click_on "New line item date"
+  test "Updating a line item date" do
+    assert_selector "h1", text: "First quote"
 
-    fill_in "Date", with: @line_item_date.date
-    fill_in "Quote", with: @line_item_date.quote_id
-    click_on "Create Line item date"
+    within id: dom_id(@line_item_date) do
+      click_on "Edit"
+    end
 
-    assert_text "Line item date was successfully created"
-    click_on "Back"
+    assert_selector "h1", text: "First quote"
+
+    fill_in "Date", with: Date.current + 1.day
+    click_on "Update date"
+
+    assert_text I18n.l(Date.current + 1.day, format: :long)
   end
 
-  test "should update Line item date" do
-    visit line_item_date_url(@line_item_date)
-    click_on "Edit this line item date", match: :first
+  test "Destroying a line item date" do
+    assert_text I18n.l(Date.current, format: :long)
 
-    fill_in "Date", with: @line_item_date.date
-    fill_in "Quote", with: @line_item_date.quote_id
-    click_on "Update Line item date"
+    accept_confirm do
+      within id: dom_id(@line_item_date) do
+        click_on "Delete"
+      end
+    end
 
-    assert_text "Line item date was successfully updated"
-    click_on "Back"
-  end
-
-  test "should destroy Line item date" do
-    visit line_item_date_url(@line_item_date)
-    click_on "Destroy this line item date", match: :first
-
-    assert_text "Line item date was successfully destroyed"
+    assert_no_text I18n.l(Date.current, format: :long)
   end
 end

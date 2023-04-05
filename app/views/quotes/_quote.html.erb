@@ -5,11 +5,11 @@
         <%= link_to quote.name, quote_path(quote),
         data:{turbo_frame: "_top"} %>
         <div class="quote__actions">
-            <%= button_to "Delete",
+            <%= button_to "Supprimer",
                     quote_path(quote),
                     method: :delete,
                     class: "btn btn--light" %>
-            <%= link_to "Edit",
+            <%= link_to "Modifier",
                   edit_quote_path(quote),
                   class: "btn btn--light" %>
         </div>
